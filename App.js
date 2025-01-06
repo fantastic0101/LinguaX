@@ -7,6 +7,12 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import SignInScreen from './screens/SignInScreen';
 import WelcomeScreen from './screens/WelcomeScreen';
+import WelcomeStep1 from './screens/WelcomeStep1';
+import WelcomeStep2 from './screens/WelcomeStep2';
+import WelcomeStep3 from './screens/WelcomeStep3';
+import WelcomeStep4 from './screens/WelcomeStep4';
+import AwesomeScreen from './screens/AwesomeScreen';
+import CustomProgressBar from './components/CustomProgressBar';
 
 const Stack = createStackNavigator();
 
@@ -30,6 +36,55 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Home">
         <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
+        <Stack.Screen name="Awesome" component={AwesomeScreen} options={{ headerShown: false }} />
+        <Stack.Screen name="WelcomeStep1" component={WelcomeStep1} options={{
+          headerTitle: () => <CustomProgressBar percent='6%'/>,
+          headerStyle: {
+            backgroundColor: Colors.bgColor,
+            elevation: 0,
+            shadowOpacity: 0,
+          },
+          headerTitleContainerStyle: {
+            width: '100%',
+          },
+          headerTintColor: Colors.tintColor,
+        }} />
+        <Stack.Screen name="WelcomeStep2" component={WelcomeStep2} options={{
+          headerTitle: () => <CustomProgressBar percent='25%'/>,
+          headerStyle: {
+            backgroundColor: Colors.bgColor,
+            elevation: 0,
+            shadowOpacity: 0,
+          },
+          headerTitleContainerStyle: {
+            width: '100%',
+          },
+          headerTintColor: Colors.tintColor,
+        }} />
+        <Stack.Screen name="WelcomeStep3" component={WelcomeStep3} options={{
+          headerTitle: () => <CustomProgressBar percent='50%'/>,
+          headerStyle: {
+            backgroundColor: Colors.bgColor,
+            elevation: 0,
+            shadowOpacity: 0,
+          },
+          headerTitleContainerStyle: {
+            width: '100%',
+          },
+          headerTintColor: Colors.tintColor,
+        }} />
+        <Stack.Screen name="WelcomeStep4" component={WelcomeStep4} options={{
+          headerTitle: () => <CustomProgressBar percent='75%'/>,
+          headerStyle: {
+            backgroundColor: Colors.bgColor,
+            elevation: 0,
+            shadowOpacity: 0,
+          },
+          headerTitleContainerStyle: {
+            width: '100%',
+          },
+          headerTintColor: Colors.tintColor,
+        }} />
         <Stack.Screen name="Welcome" component={WelcomeScreen} options={{
           title: '',
           headerStyle: {
