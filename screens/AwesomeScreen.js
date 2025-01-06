@@ -3,20 +3,22 @@ import { Text, StyleSheet, View, Image } from 'react-native';
 import Colors from '../constants/colors';
 import CustomButton from '../components/CustomButton';
 
-const WelcomeScreen = ({ navigation }) => {
+const AwesomeScreen = ({ navigation }) => {
     const nextPage = () => {
-        navigation.navigate('WelcomeStep1');
     }
 
     return (
         <View style={styles.container}>
             <View style={styles.imageDiv}>
-                <Image source={require('../assets/welcome.png')} />
-                <Text style={styles.title}>Welcome to LinguaX</Text>
-                <Text style={styles.description}>Answer 4 quick questions to help us{'\n'}tailor your learning experience just for you</Text>
+                <Image source={require('../assets/create-profile.png')} />
+                <Text style={styles.title}>Awesome</Text>
+                <Text style={styles.description}>Let's study together! Create your profile now to save your progress and keep learning seamlessly</Text>
             </View>
             <View style={styles.buttonDiv}>
-                <CustomButton onPress={nextPage} title="Continue" textColor={Colors.whiteColor} bgColor={Colors.primaryColor} borderColor={Colors.primaryDarkColor} marginBottom={12} />
+                <CustomButton onPress={nextPage} title="Create profile" textColor={Colors.whiteColor} bgColor={Colors.primaryColor} borderColor={Colors.primaryDarkColor} marginBottom={12} />
+                <View style={{ paddingBottom: 10, marginTop: 12 }}>
+                    <Text style={styles.forgotPassword}>Forgot password</Text>
+                </View>
             </View>
         </View>
     );
@@ -54,6 +56,14 @@ const styles = StyleSheet.create({
         borderTopWidth: 1,
         borderTopColor: Colors.borderColor,
     },
+    forgotPassword: {
+        fontFamily: 'Lato',
+        fontWeight: '700',
+        fontSize: 16,
+        lineHeight: 24,
+        color: Colors.primaryColor,
+        textAlign: 'center',
+    },
 });
 
-export default WelcomeScreen;
+export default AwesomeScreen;
