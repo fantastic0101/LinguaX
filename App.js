@@ -12,6 +12,8 @@ import WelcomeStep2 from './screens/WelcomeStep2';
 import WelcomeStep3 from './screens/WelcomeStep3';
 import WelcomeStep4 from './screens/WelcomeStep4';
 import AwesomeScreen from './screens/AwesomeScreen';
+import SignUpScreen from './screens/SignUpScreen';
+import WelcomeUserScreen from './screens/WelcomeUserScreen';
 import CustomProgressBar from './components/CustomProgressBar';
 
 const Stack = createStackNavigator();
@@ -37,6 +39,27 @@ export default function App() {
       <Stack.Navigator initialRouteName="Home">
         <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
         <Stack.Screen name="Awesome" component={AwesomeScreen} options={{ headerShown: false }} />
+        <Stack.Screen name="WelcomeUser" component={WelcomeUserScreen} options={{ headerShown: false }} />
+        <Stack.Screen name="SignUp" component={SignUpScreen} options={{
+          title: 'Create your profile',
+          headerStyle: {
+            backgroundColor: Colors.bgColor,
+            elevation: 0,
+            shadowOpacity: 0,
+          },
+          headerTitleAlign: 'center',
+          headerTitleStyle: {
+            fontFamily: 'Lato',
+            fontWeight: 900,
+            fontSize: 20,
+            lineHeight: 28,
+            color: Colors.fontColor,
+          },
+          headerTintColor: Colors.tintColor,
+          headerBackImage: () => (
+            <Image source={require('./assets/close.png')}/>
+          )
+        }} />
         <Stack.Screen name="WelcomeStep1" component={WelcomeStep1} options={{
           headerTitle: () => <CustomProgressBar percent='6%'/>,
           headerStyle: {

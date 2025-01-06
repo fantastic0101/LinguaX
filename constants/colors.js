@@ -18,4 +18,5 @@ export default {
     lightYellowColor: "#FFC85C",
     lightOrangeColor: "#FF9361",
     lightRedColor: "#F86A6A",
+    errorColor: "#FF4C4B",
 };
