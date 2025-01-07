@@ -1,9 +1,9 @@
 import { StyleSheet, Text, View, Image } from 'react-native';
-import colors from '../constants/colors';
-import CustomButton from '../components/CustomButton';
+import colors from '../../constants/colors';
+import CustomButton from '../../components/CustomButton';
 import { useState } from 'react';
 
-const WelcomeStep3 = ({ navigation }) => {
+const WelcomeStep1 = ({ navigation }) => {
     const [selectedIndex, setSelectedIndex] = useState(0);
 
     const changeIndex = (val) => {
@@ -11,23 +11,28 @@ const WelcomeStep3 = ({ navigation }) => {
     }
 
     const nextPage = () => {
-        if (selectedIndex !== 0)
-            navigation.navigate('WelcomeStep4');
+        if(selectedIndex !== 0)
+            navigation.navigate('WelcomeStep2');
     }
 
     return (
         <View style={styles.container}>
             <View style={styles.description}>
-                <Text style={styles.title}>I plan to practice ...</Text>
+                <Text style={styles.title}>I want to learn Arabic to ...</Text>
                 <Text style={styles.subTitle}>Your selections will shape a personalized experience just for you</Text>
                 <View style={styles.options}>
                     <CustomButton
-                        title="5-10 min/day"
-                        subText="Quick daily practice"
+                        title="Communicate confidently"
                         textColor="black"
                         bgColor={colors.whiteColor}
                         borderWidth={1.5}
                         borderColor={selectedIndex === 1 ? colors.primaryColor : colors.borderColor}
+                        icon={
+                            <Image
+                                source={require('../../assets/communication.png')}
+                                style={styles.icon}
+                            />
+                        }
                         marginBottom={12}
                         justify='start'
                         onPress={() => {
@@ -35,12 +40,17 @@ const WelcomeStep3 = ({ navigation }) => {
                         }}
                     />
                     <CustomButton
-                        title="20-30 min/day"
-                        subText="Steady progress"
+                        title="Enhance career opportunities"
                         textColor="black"
                         bgColor={colors.whiteColor}
                         borderWidth={1.5}
                         borderColor={selectedIndex === 2 ? colors.primaryColor : colors.borderColor}
+                        icon={
+                            <Image
+                                source={require('../../assets/briefcase.png')}
+                                style={styles.icon}
+                            />
+                        }
                         marginBottom={12}
                         justify='start'
                         onPress={() => {
@@ -48,12 +58,17 @@ const WelcomeStep3 = ({ navigation }) => {
                         }}
                     />
                     <CustomButton
-                        title="1 hour or more/day"
-                        subText="Master language"
+                        title="Connect with new cultures"
                         textColor="black"
                         bgColor={colors.whiteColor}
                         borderWidth={1.5}
                         borderColor={selectedIndex === 3 ? colors.primaryColor : colors.borderColor}
+                        icon={
+                            <Image
+                                source={require('../../assets/union.png')}
+                                style={styles.icon}
+                            />
+                        }
                         marginBottom={12}
                         justify='start'
                         onPress={() => {
@@ -104,4 +119,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default WelcomeStep3;
+export default WelcomeStep1;

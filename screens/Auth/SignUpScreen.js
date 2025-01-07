@@ -1,7 +1,7 @@
 import { View, Text, StyleSheet, TouchableWithoutFeedback, Keyboard, ScrollView, KeyboardAvoidingView, Platform } from 'react-native';
 import { TextInput } from 'react-native-paper';
-import colors from '../constants/colors';
-import CustomButton from '../components/CustomButton';
+import colors from '../../constants/colors';
+import CustomButton from '../../components/CustomButton';
 import { useState } from 'react';
 
 const SignUpScreen = ({ navigation }) => {
