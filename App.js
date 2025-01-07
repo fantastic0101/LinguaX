@@ -5,15 +5,16 @@ import * as Font from 'expo-font';
 import { useEffect } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import SignInScreen from './screens/SignInScreen';
+import SignInScreen from './screens/Auth/SignInScreen';
 import WelcomeScreen from './screens/WelcomeScreen';
-import WelcomeStep1 from './screens/WelcomeStep1';
-import WelcomeStep2 from './screens/WelcomeStep2';
-import WelcomeStep3 from './screens/WelcomeStep3';
-import WelcomeStep4 from './screens/WelcomeStep4';
-import AwesomeScreen from './screens/AwesomeScreen';
-import SignUpScreen from './screens/SignUpScreen';
-import WelcomeUserScreen from './screens/WelcomeUserScreen';
+import WelcomeStep1 from './screens/GetStarted/WelcomeStep1';
+import WelcomeStep2 from './screens/GetStarted/WelcomeStep2';
+import WelcomeStep3 from './screens/GetStarted/WelcomeStep3';
+import WelcomeStep4 from './screens/GetStarted/WelcomeStep4';
+import AwesomeScreen from './screens/GetStarted/AwesomeScreen';
+import SignUpScreen from './screens/Auth/SignUpScreen';
+import WelcomeUserScreen from './screens/Auth/WelcomeUserScreen';
+import DashboardScreen from './screens/Main/DashboardScreen';
 import CustomProgressBar from './components/CustomProgressBar';
 
 const Stack = createStackNavigator();
@@ -39,6 +40,7 @@ export default function App() {
       <Stack.Navigator initialRouteName="Home">
         <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
         <Stack.Screen name="Awesome" component={AwesomeScreen} options={{ headerShown: false }} />
+        <Stack.Screen name="Dashboard" component={DashboardScreen} options={{ headerShown: false }} />
         <Stack.Screen name="WelcomeUser" component={WelcomeUserScreen} options={{ headerShown: false }} />
         <Stack.Screen name="SignUp" component={SignUpScreen} options={{
           title: 'Create your profile',

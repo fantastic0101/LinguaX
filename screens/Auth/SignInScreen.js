@@ -9,13 +9,17 @@ import {
     ScrollView,
 } from 'react-native';
 import { TextInput } from 'react-native-paper';
-import Colors from '../constants/colors';
-import CustomButton from '../components/CustomButton';
+import Colors from '../../constants/colors';
+import CustomButton from '../../components/CustomButton';
 
-const SignInScreen = () => {
+const SignInScreen = ({ navigation }) => {
     const [id, setId] = useState('');
     const [password, setPassword] = useState('');
     const [secureText, setSecureText] = useState(true);
+
+    const nextPage = () => {
+        navigation.navigate('Dashboard');
+    };
 
     return (
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
@@ -52,6 +56,7 @@ const SignInScreen = () => {
                                 textColor={Colors.whiteColor}
                                 bgColor={Colors.primaryColor}
                                 borderColor={Colors.primaryDarkColor}
+                                onPress={nextPage}
                             />
                             <View style={{ paddingVertical: 10, marginTop: 12 }}>
                                 <Text style={styles.forgotPassword}>Forgot password</Text>
@@ -67,7 +72,7 @@ const SignInScreen = () => {
                             borderColor={Colors.borderColor}
                             icon={
                                 <Image
-                                    source={require('../assets/logo-gg.png')}
+                                    source={require('../../assets/logo-gg.png')}
                                     style={styles.icon}
                                 />
                             }
@@ -81,7 +86,7 @@ const SignInScreen = () => {
                             borderColor={Colors.borderColor}
                             icon={
                                 <Image
-                                    source={require('../assets/logo-fb.png')}
+                                    source={require('../../assets/logo-fb.png')}
                                     style={styles.icon}
                                 />
                             }
@@ -95,7 +100,7 @@ const SignInScreen = () => {
                             borderColor={Colors.borderColor}
                             icon={
                                 <Image
-                                    source={require('../assets/logo-apple.png')}
+                                    source={require('../../assets/logo-apple.png')}
                                     style={styles.icon}
                                 />
                             }

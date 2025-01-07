@@ -1,25 +1,22 @@
 import React from 'react';
 import { Text, StyleSheet, View, Image } from 'react-native';
-import Colors from '../constants/colors';
-import CustomButton from '../components/CustomButton';
+import Colors from '../../constants/colors';
+import CustomButton from '../../components/CustomButton';
 
-const AwesomeScreen = ({ navigation }) => {
+const WelcomeUserScreen = ({ navigation }) => {
     const nextPage = () => {
-        navigation.navigate('SignUp');
     }
 
     return (
         <View style={styles.container}>
             <View style={styles.imageDiv}>
-                <Image source={require('../assets/create-profile.png')} />
-                <Text style={styles.title}>Awesome</Text>
-                <Text style={styles.description}>Let's study together! Create your profile now to save your progress and keep learning seamlessly</Text>
+                <Image source={require('../../assets/well-done.png')} />
+                <Text style={styles.title}>Welcome Amber</Text>
+                <Text style={styles.description}>Your profile has been successfully created.{'\n'}
+                    Let's start your learning journey</Text>
             </View>
             <View style={styles.buttonDiv}>
-                <CustomButton onPress={nextPage} title="Create profile" textColor={Colors.whiteColor} bgColor={Colors.primaryColor} borderColor={Colors.primaryDarkColor} marginBottom={12} />
-                <View style={{ paddingBottom: 10, marginTop: 12 }}>
-                    <Text style={styles.forgotPassword}>Forgot password</Text>
-                </View>
+                <CustomButton onPress={nextPage} title="Continue" textColor={Colors.whiteColor} bgColor={Colors.primaryColor} borderColor={Colors.primaryDarkColor} marginBottom={12} />
             </View>
         </View>
     );
@@ -57,14 +54,6 @@ const styles = StyleSheet.create({
         borderTopWidth: 1,
         borderTopColor: Colors.borderColor,
     },
-    forgotPassword: {
-        fontFamily: 'Lato',
-        fontWeight: '700',
-        fontSize: 16,
-        lineHeight: 24,
-        color: Colors.primaryColor,
-        textAlign: 'center',
-    },
 });
 
-export default AwesomeScreen;
+export default WelcomeUserScreen;

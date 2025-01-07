@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View, Image } from 'react-native';
-import colors from '../constants/colors';
-import CustomButton from '../components/CustomButton';
-import TileItem from '../components/TileItem';
+import colors from '../../constants/colors';
+import CustomButton from '../../components/CustomButton';
+import TileItem from '../../components/TileItem';
 import { useState } from 'react';
 
 const WelcomeStep4 = ({ navigation }) => {
