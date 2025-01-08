@@ -3,6 +3,7 @@ import BottomNavigation from '../../components/BottomNavigation';
 import colors from '../../constants/colors';
 import RankingItem from '../../components/RankingItem';
 import { ScrollView } from 'react-native-gesture-handler';
+import { useState } from 'react';
 
 const LeaderboardScreen = ({ navigation }) => {
     const data = [
@@ -19,6 +20,7 @@ const LeaderboardScreen = ({ navigation }) => {
         { number: 11, fName: 'John', lName: 'Powell', exp: 400 },
         { number: 12, fName: 'John', lName: 'Powell', exp: 400 },
     ];
+    const [index, setIndex] = useState(0);
 
     return (
         <View style={styles.container}>
@@ -59,7 +61,7 @@ const LeaderboardScreen = ({ navigation }) => {
                 </View>
                 <ScrollView>
                     {data.map((item) => {
-                        return <RankingItem key={item.number} number={item.number} fName={item.fName} lName={item.lName} exp={item.exp} />;
+                        return <RankingItem onPress={() => setIndex(item.number)} key={item.number} number={item.number} fName={item.fName} lName={item.lName} exp={item.exp} selected={index === item.number} />;
                     })}
                 </ScrollView>
             </View>
