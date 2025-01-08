@@ -24,32 +24,32 @@ const LearningScreen = ({ navigation }) => {
     return (
         <View style={styles.container}>
             <View style={styles.content}>
-                <ScrollView style={styles.scrollView}>
-                    <View style={styles.header}>
-                        <View style={styles.headerContent}>
-                            <Image source={require('../../assets/clock-icon.png')} />
-                            <Text style={styles.time}>
-                                Trail time: 30:00
-                            </Text>
-                        </View>
-                        <Text style={styles.title}>Learning</Text>
+                {/* <ScrollView style={styles.scrollView}> */}
+                <View style={styles.header}>
+                    <View style={styles.headerContent}>
+                        <Image source={require('../../assets/clock-icon.png')} />
+                        <Text style={styles.time}>
+                            Trail time: 30:00
+                        </Text>
                     </View>
-                    <View style={styles.items}>
-                        <Text style={styles.itemTitle}>Let's Learn the Arabic Letters!</Text>
-                        <Text style={styles.itemSubTitle}>Master the Arabic Alphabet</Text>
-                        <CustomButton disabled={true} title='Learn the Script' locked={true} />
-                        <FlatList
-                            data={items}
-                            keyExtractor={(item) => item.index.toString()}
-                            renderItem={({ item }) => (
-                                <LearningTile key={item.index} arab={item.letterArab} eng={item.letterEng} />
-                            )}
-                            numColumns={numColumns}
-                            columnWrapperStyle={styles.row}
-                            contentContainerStyle={styles.itemList}
-                        />
-                    </View>
-                </ScrollView>
+                    <Text style={styles.title}>Learning</Text>
+                </View>
+                <View style={styles.items}>
+                    <Text style={styles.itemTitle}>Let's Learn the Arabic Letters!</Text>
+                    <Text style={styles.itemSubTitle}>Master the Arabic Alphabet</Text>
+                    <CustomButton disabled={true} title='Learn the Script' locked={true} />
+                    <FlatList
+                        data={items}
+                        keyExtractor={(item) => item.index.toString()}
+                        renderItem={({ item }) => (
+                            <LearningTile key={item.index} arab={item.letterArab} eng={item.letterEng} />
+                        )}
+                        numColumns={numColumns}
+                        columnWrapperStyle={styles.row}
+                        contentContainerStyle={styles.itemList}
+                    />
+                </View>
+                {/* </ScrollView> */}
             </View>
             <BottomNavigation navigation={navigation} />
         </View>
