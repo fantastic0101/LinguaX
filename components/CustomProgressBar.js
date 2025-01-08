@@ -2,12 +2,19 @@ import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import colors from '../constants/colors';
 
-const CustomProgressBar = ({ percent }) => {
+const CustomProgressBar = ({ percent, description, icon }) => {
     return (
         <View style={styles.container}>
-            <View style={[styles.process, {width: percent}]}>
-                <View style={styles.insideProcess}></View>
+            <View style={[styles.process, { width: percent }]}>
+                <View style={styles.insideProcess}>
+                    {description && <Text style={styles.description}>{description}</Text>}
+                </View>
             </View>
+            {icon && (
+                <View style={styles.imageIcon}>
+                    {icon}
+                </View>
+            )}
         </View>
     )
 };
@@ -32,6 +39,27 @@ const styles = StyleSheet.create({
         backgroundColor: '#FFFFFF4D',
         height: 4,
         borderRadius: 100,
+    },
+    description: {
+        position: 'absolute',
+        left: '70%',
+        color: colors.primaryColor,
+        fontSize: 14,
+        lineHeight: 16,
+        marginTop: -5,
+    },
+    imageIcon: {
+        backgroundColor: colors.whiteColor,
+        width: 28,
+        height: 28,
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderRadius: 100,
+        borderWidth: 1,
+        borderColor: colors.borderColor,
+        position: 'absolute',
+        marginTop: -5,
+        right: 0,
     }
 });
 
