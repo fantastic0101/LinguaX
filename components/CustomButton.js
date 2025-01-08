@@ -1,8 +1,8 @@
 import React from 'react';
-import { TouchableOpacity, Text, StyleSheet, View } from 'react-native';
+import { TouchableOpacity, Text, StyleSheet, Image, View } from 'react-native';
 import colors from '../constants/colors';
 
-const CustomButton = ({ title, subText, onPress, textColor, bgColor, borderColor, borderWidth, marginBottom, icon, justify, disabled, bgImage, leftIcon }) => {
+const CustomButton = ({ title, subText, onPress, textColor, bgColor, borderColor, borderWidth, marginBottom, icon, justify, disabled, bgImage, leftIcon, locked }) => {
     return (
         <View style={[{ backgroundColor: disabled === true ? colors.borderColor : borderColor, paddingBottom: 4, borderRadius: 12, marginBottom: marginBottom }]}>
             <TouchableOpacity style={[styles.button, { backgroundColor: disabled === true ? colors.borderColor : bgColor, borderColor: disabled === true ? colors.borderColor : borderColor, borderWidth: borderWidth, justifyContent: justify ? justify : 'center' }]} onPress={onPress}>
@@ -10,6 +10,7 @@ const CustomButton = ({ title, subText, onPress, textColor, bgColor, borderColor
                     {bgImage}
                     {icon}
                     <Text style={[styles.buttonText, { color: disabled === true ? colors.gray400 : textColor }]}>{title}</Text>
+                    {locked && <View style={styles.lockIcon}><Image source={require('../assets/lock-circle.png')} /></View>}
                     {subText && (
                         <View style={{ flex: 1, alignItems: 'flex-end' }}>
                             <Text style={styles.subText}>{subText}</Text>
@@ -53,6 +54,9 @@ const styles = StyleSheet.create({
         lineHeight: 20,
         color: colors.gray500,
         textAlign: 'right',
+    },
+    lockIcon: {
+        paddingLeft: 8,
     }
 });
 

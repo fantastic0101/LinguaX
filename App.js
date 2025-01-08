@@ -16,6 +16,7 @@ import SignUpScreen from './screens/Auth/SignUpScreen';
 import WelcomeUserScreen from './screens/Auth/WelcomeUserScreen';
 import DashboardScreen from './screens/Main/DashboardScreen';
 import ExploreScreen from './screens/Main/ExploreScreen';
+import LearningScreen from './screens/Main/LearningScreen';
 import CustomProgressBar from './components/CustomProgressBar';
 import { Provider } from 'react-redux';
 import store from './store';
@@ -46,6 +47,7 @@ export default function App() {
           <Stack.Screen name="Awesome" component={AwesomeScreen} options={{ headerShown: false }} />
           <Stack.Screen name="Dashboard" component={DashboardScreen} options={{ headerShown: false }} />
           <Stack.Screen name="Explore" component={ExploreScreen} options={{ headerShown: false }} />
+          <Stack.Screen name="Learning" component={LearningScreen} options={{ headerShown: false }} />
           <Stack.Screen name="WelcomeUser" component={WelcomeUserScreen} options={{ headerShown: false }} />
           <Stack.Screen name="SignUp" component={SignUpScreen} options={{
             title: 'Create your profile',

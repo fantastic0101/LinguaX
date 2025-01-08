@@ -46,6 +46,8 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         alignItems: 'center',
         overflow: 'hidden',
+        borderTopWidth: 2,
+        borderTopColor: colors.borderColor,
     },
     activeTitle: {
         fontSize: 14,
