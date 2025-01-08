@@ -84,7 +84,7 @@ const DashboardScreen = ({ navigation }) => {
                     </View>
                 </ScrollView>
             </View>
-            <BottomNavigation/>
+            <BottomNavigation navigation={navigation} />
         </View>
     );
 };

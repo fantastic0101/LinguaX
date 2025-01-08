@@ -8,6 +8,7 @@ const TextBadge = ({ bgColor, textColor, text }) => {
             paddingVertical: 4,
             paddingHorizontal: 8,
             borderRadius: 8,
+            alignSelf: 'flex-start',
         },
         text: {
             color: textColor ? textColor : colors.whiteColor,

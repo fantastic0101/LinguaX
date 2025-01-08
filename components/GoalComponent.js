@@ -84,7 +84,7 @@ const GoalComponent = ({ tCount, fCount, bgColor, borderColor }) => {
                             <Text style={styles.rowMain}>Complete {tCount} lessons today</Text>
                             <Text style={styles.rowDetail}>Details <Image source={require('../assets/arrow-right.png')} style={styles.arrowIcon} /> </Text>
                         </View>
-                        <CustomProgressBar percent={`${fCount * 100 / tCount}%`} description='2/3' icon={<Image source={require('../assets/tropy.png')} />}/>
+                        <CustomProgressBar percent={`${fCount * 100 / tCount}%`} description={`${fCount + '/' + tCount}`} icon={<Image source={require('../assets/tropy.png')} />}/>
                     </View>
                 </ImageBackground>
             </View>
