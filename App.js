@@ -15,7 +15,10 @@ import AwesomeScreen from './screens/GetStarted/AwesomeScreen';
 import SignUpScreen from './screens/Auth/SignUpScreen';
 import WelcomeUserScreen from './screens/Auth/WelcomeUserScreen';
 import DashboardScreen from './screens/Main/DashboardScreen';
+import ExploreScreen from './screens/Main/ExploreScreen';
 import CustomProgressBar from './components/CustomProgressBar';
+import { Provider } from 'react-redux';
+import store from './store';
 
 const Stack = createStackNavigator();
 
@@ -36,116 +39,119 @@ export default function App() {
   }, []);
 
   return (
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home">
-        <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
-        <Stack.Screen name="Awesome" component={AwesomeScreen} options={{ headerShown: false }} />
-        <Stack.Screen name="Dashboard" component={DashboardScreen} options={{ headerShown: false }} />
-        <Stack.Screen name="WelcomeUser" component={WelcomeUserScreen} options={{ headerShown: false }} />
-        <Stack.Screen name="SignUp" component={SignUpScreen} options={{
-          title: 'Create your profile',
-          headerStyle: {
-            backgroundColor: Colors.bgColor,
-            elevation: 0,
-            shadowOpacity: 0,
-          },
-          headerTitleAlign: 'center',
-          headerTitleStyle: {
-            fontFamily: 'Lato',
-            fontWeight: 900,
-            fontSize: 20,
-            lineHeight: 28,
-            color: Colors.fontColor,
-          },
-          headerTintColor: Colors.tintColor,
-          headerBackImage: () => (
-            <Image source={require('./assets/close.png')}/>
-          )
-        }} />
-        <Stack.Screen name="WelcomeStep1" component={WelcomeStep1} options={{
-          headerTitle: () => <CustomProgressBar percent='6%'/>,
-          headerStyle: {
-            backgroundColor: Colors.bgColor,
-            elevation: 0,
-            shadowOpacity: 0,
-          },
-          headerTitleContainerStyle: {
-            width: '100%',
-          },
-          headerTintColor: Colors.tintColor,
-        }} />
-        <Stack.Screen name="WelcomeStep2" component={WelcomeStep2} options={{
-          headerTitle: () => <CustomProgressBar percent='25%'/>,
-          headerStyle: {
-            backgroundColor: Colors.bgColor,
-            elevation: 0,
-            shadowOpacity: 0,
-          },
-          headerTitleContainerStyle: {
-            width: '100%',
-          },
-          headerTintColor: Colors.tintColor,
-        }} />
-        <Stack.Screen name="WelcomeStep3" component={WelcomeStep3} options={{
-          headerTitle: () => <CustomProgressBar percent='50%'/>,
-          headerStyle: {
-            backgroundColor: Colors.bgColor,
-            elevation: 0,
-            shadowOpacity: 0,
-          },
-          headerTitleContainerStyle: {
-            width: '100%',
-          },
-          headerTintColor: Colors.tintColor,
-        }} />
-        <Stack.Screen name="WelcomeStep4" component={WelcomeStep4} options={{
-          headerTitle: () => <CustomProgressBar percent='75%'/>,
-          headerStyle: {
-            backgroundColor: Colors.bgColor,
-            elevation: 0,
-            shadowOpacity: 0,
-          },
-          headerTitleContainerStyle: {
-            width: '100%',
-          },
-          headerTintColor: Colors.tintColor,
-        }} />
-        <Stack.Screen name="Welcome" component={WelcomeScreen} options={{
-          title: '',
-          headerStyle: {
-            backgroundColor: Colors.bgColor,
-            elevation: 0,
-            shadowOpacity: 0,
-          },
-          headerTitleAlign: 'center',
-          headerTitleStyle: {
-            fontFamily: 'Lato',
-            fontWeight: 900,
-            fontSize: 20,
-            lineHeight: 28,
-            color: Colors.fontColor,
-          },
-          headerTintColor: Colors.tintColor,
-        }} />
-        <Stack.Screen name="SignIn" component={SignInScreen} options={{
-          title: 'Sign in',
-          headerStyle: {
-            backgroundColor: Colors.bgColor,
-            elevation: 0,
-            shadowOpacity: 0,
-          },
-          headerTitleAlign: 'center',
-          headerTitleStyle: {
-            fontFamily: 'Lato',
-            fontWeight: 900,
-            fontSize: 20,
-            lineHeight: 28,
-            color: Colors.fontColor,
-          },
-          headerTintColor: Colors.tintColor,
-        }} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <Provider store={store}>
+      <NavigationContainer>
+        <Stack.Navigator initialRouteName="Home">
+          <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
+          <Stack.Screen name="Awesome" component={AwesomeScreen} options={{ headerShown: false }} />
+          <Stack.Screen name="Dashboard" component={DashboardScreen} options={{ headerShown: false }} />
+          <Stack.Screen name="Explore" component={ExploreScreen} options={{ headerShown: false }} />
+          <Stack.Screen name="WelcomeUser" component={WelcomeUserScreen} options={{ headerShown: false }} />
+          <Stack.Screen name="SignUp" component={SignUpScreen} options={{
+            title: 'Create your profile',
+            headerStyle: {
+              backgroundColor: Colors.bgColor,
+              elevation: 0,
+              shadowOpacity: 0,
+            },
+            headerTitleAlign: 'center',
+            headerTitleStyle: {
+              fontFamily: 'Lato',
+              fontWeight: 900,
+              fontSize: 20,
+              lineHeight: 28,
+              color: Colors.fontColor,
+            },
+            headerTintColor: Colors.tintColor,
+            headerBackImage: () => (
+              <Image source={require('./assets/close.png')} />
+            )
+          }} />
+          <Stack.Screen name="WelcomeStep1" component={WelcomeStep1} options={{
+            headerTitle: () => <CustomProgressBar percent='6%' />,
+            headerStyle: {
+              backgroundColor: Colors.bgColor,
+              elevation: 0,
+              shadowOpacity: 0,
+            },
+            headerTitleContainerStyle: {
+              width: '100%',
+            },
+            headerTintColor: Colors.tintColor,
+          }} />
+          <Stack.Screen name="WelcomeStep2" component={WelcomeStep2} options={{
+            headerTitle: () => <CustomProgressBar percent='25%' />,
+            headerStyle: {
+              backgroundColor: Colors.bgColor,
+              elevation: 0,
+              shadowOpacity: 0,
+            },
+            headerTitleContainerStyle: {
+              width: '100%',
+            },
+            headerTintColor: Colors.tintColor,
+          }} />
+          <Stack.Screen name="WelcomeStep3" component={WelcomeStep3} options={{
+            headerTitle: () => <CustomProgressBar percent='50%' />,
+            headerStyle: {
+              backgroundColor: Colors.bgColor,
+              elevation: 0,
+              shadowOpacity: 0,
+            },
+            headerTitleContainerStyle: {
+              width: '100%',
+            },
+            headerTintColor: Colors.tintColor,
+          }} />
+          <Stack.Screen name="WelcomeStep4" component={WelcomeStep4} options={{
+            headerTitle: () => <CustomProgressBar percent='75%' />,
+            headerStyle: {
+              backgroundColor: Colors.bgColor,
+              elevation: 0,
+              shadowOpacity: 0,
+            },
+            headerTitleContainerStyle: {
+              width: '100%',
+            },
+            headerTintColor: Colors.tintColor,
+          }} />
+          <Stack.Screen name="Welcome" component={WelcomeScreen} options={{
+            title: '',
+            headerStyle: {
+              backgroundColor: Colors.bgColor,
+              elevation: 0,
+              shadowOpacity: 0,
+            },
+            headerTitleAlign: 'center',
+            headerTitleStyle: {
+              fontFamily: 'Lato',
+              fontWeight: 900,
+              fontSize: 20,
+              lineHeight: 28,
+              color: Colors.fontColor,
+            },
+            headerTintColor: Colors.tintColor,
+          }} />
+          <Stack.Screen name="SignIn" component={SignInScreen} options={{
+            title: 'Sign in',
+            headerStyle: {
+              backgroundColor: Colors.bgColor,
+              elevation: 0,
+              shadowOpacity: 0,
+            },
+            headerTitleAlign: 'center',
+            headerTitleStyle: {
+              fontFamily: 'Lato',
+              fontWeight: 900,
+              fontSize: 20,
+              lineHeight: 28,
+              color: Colors.fontColor,
+            },
+            headerTintColor: Colors.tintColor,
+          }} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </Provider>
   );
 }
 

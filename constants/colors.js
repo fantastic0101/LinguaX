@@ -22,6 +22,7 @@ export default {
     lightRedColor: "#F86A6A",
     errorColor: "#FF4C4B",
     orange4Color: "#FFEBE5",
+    orangeTransColor: "#FF6F3E1A",
     darkGreenColor: "#429702",
     blue100: "#1CAFFB",
     purple100: "#A670FD",

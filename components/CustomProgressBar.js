@@ -7,9 +7,9 @@ const CustomProgressBar = ({ percent, description, icon }) => {
         <View style={styles.container}>
             <View style={[styles.process, { width: percent }]}>
                 <View style={styles.insideProcess}>
-                    {description && <Text style={styles.description}>{description}</Text>}
                 </View>
             </View>
+            {description && <Text style={styles.description}>{description}</Text>}
             {icon && (
                 <View style={styles.imageIcon}>
                     {icon}
@@ -42,11 +42,15 @@ const styles = StyleSheet.create({
     },
     description: {
         position: 'absolute',
-        left: '70%',
-        color: colors.primaryColor,
+        left: '50%',
+        color: colors.gray400,
         fontSize: 14,
         lineHeight: 16,
         marginTop: -5,
+        transform: [
+            { translateX: '-50%' },
+            { translateY: '30%' },
+        ]
     },
     imageIcon: {
         backgroundColor: colors.whiteColor,
@@ -59,7 +63,7 @@ const styles = StyleSheet.create({
         borderColor: colors.borderColor,
         position: 'absolute',
         marginTop: -5,
-        right: 0,
+        right: -4,
     }
 });
 

@@ -1,26 +1,29 @@
 import { Text, Image, View, StyleSheet, TouchableOpacity } from 'react-native';
-import { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { setIndex } from '../redux/navigationSlice';
 import colors from '../constants/colors';
 
 const BottomNavigation = ({ navigation }) => {
     const items = [
-        { index: 0, title: 'Home', icon: <Image source={require('../assets/home.png')} />, activeIcon: <Image source={require('../assets/home-active.png')} /> },
-        { index: 1, title: 'Explore', icon: <Image source={require('../assets/element-plus.png')} />, activeIcon: <Image source={require('../assets/element-plus-active.png')} /> },
-        { index: 2, title: 'Learning', icon: <Image source={require('../assets/global.png')} />, activeIcon: <Image source={require('../assets/global-active.png')} /> },
-        { index: 3, title: 'Leaderboard', icon: <Image source={require('../assets/graph.png')} />, activeIcon: <Image source={require('../assets/graph-active.png')} /> },
-        { index: 4, title: 'You', icon: <Image source={require('../assets/avatar.png')} />, activeIcon: <Image source={require('../assets/avatar.png')} /> },
+        { index: 0, title: 'Home', icon: <Image source={require('../assets/home.png')} />, activeIcon: <Image source={require('../assets/home-active.png')} />, navigate: 'Dashboard' },
+        { index: 1, title: 'Explore', icon: <Image source={require('../assets/element-plus.png')} />, activeIcon: <Image source={require('../assets/element-plus-active.png')} />, navigate: 'Explore' },
+        { index: 2, title: 'Learning', icon: <Image source={require('../assets/global.png')} />, activeIcon: <Image source={require('../assets/global-active.png')} />, navigate: 'Learning' },
+        { index: 3, title: 'Leaderboard', icon: <Image source={require('../assets/graph.png')} />, activeIcon: <Image source={require('../assets/graph-active.png')} />, navigate: 'Leaderboard' },
+        { index: 4, title: 'You', icon: <Image source={require('../assets/avatar.png')} />, activeIcon: <Image source={require('../assets/avatar.png')} />, navigate: 'Profile' },
     ];
-    const [index, setIndex] = useState(0);
+    const dispatch = useDispatch();
+    const index = useSelector((state) => state.navigation.index);
 
-    const changePage = (val) => {
-        setIndex(val);
+    const changePage = (val, url) => {
+        dispatch(setIndex(val));
+        navigation.navigate(url);
     }
 
     return (
         <View style={styles.container}>
             {items.map((item, i) => {
                 return (
-                    <TouchableOpacity key={i} onPress={() => changePage(i)}>
+                    <TouchableOpacity key={i} onPress={() => changePage(i, item.navigate)}>
                         <View style={styles.item}>
                             {i === index ? <View style={styles.mark}></View> : <View style={styles.space}></View>}
                             {i === index ? item.activeIcon : item.icon}
